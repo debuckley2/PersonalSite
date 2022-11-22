@@ -1,0 +1,30 @@
+.mainPageTitle{
+    text-align:center;
+    font-weight: bold;
+}
+.mainPageSub{
+    text-align:center;
+}
+table{
+    margin: auto;
+    width:99%;
+    border: 2px lightskyblue solid;
+    border-radius: 5px;
+}
+th{
+    text-align: center;
+    
+    padding: 5px;
+}
+img{
+    display: block;
+    height: 20em;
+    margin-left:auto;
+    margin-right:auto;
+}
+.banner{
+    color: whitesmoke;
+    padding:1%;
+    margin-top:-2%;
+    background-color: lightsteelblue;
+}
