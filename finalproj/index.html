@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="styles.css">
+<div id="backDrop"><h1>David's Amazing Awesome Contouring Tool</h1></div>
+<div class="container" style="float:left; height:458; padding:5%; margin-left:18%;">
+    <h4>Contouring Method:</h4>
+    <input type="radio" value="dual" id="dual" name="algo">
+    <label for="cryo">Dual Contouring</label>
+    <br>
+    <input type="radio" value="primal" id="primal" name="algo">
+    <label for="brain">Marching Squares</label>
+    <br>
+    <br>
+    <br>
+    <h4>Contouring Subject:</h4>
+    <input type="radio" value="breastlesion.png" id="lesion" name="fileselect">
+    <label for="lesion">Lesion</label>
+    <br>
+    <input type="radio" value="cryo.gif" id="cryo" name="fileselect">
+    <label for="cryo">Cryo</label>
+    <br>
+    <input type="radio" value="humanbrain.png" id="brain" name="fileselect">
+    <label for="brain">Brain</label>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h4>Iso Value:</h4>
+    <input type="range" min="1" max="255" value="50" class="slider" id="threshVal">
+</div>
+<div class="container">
+    <canvas id="canv" width="50" height="50" style="margin-right:0;width:100; height:100;"></canvas>
+    <canvas id="c" ></canvas>
+</div>
+
+<!-- Boiler plate vertex shader from: https://webglfundamentals.org/webgl/lessons/webgl-fundamentals.html -->
+<script  id="vertex-shader-2d" type="notjs">
+    attribute vec2 a_position;
+
+    uniform vec2 u_resolution;
+    
+    void main() {
+       // convert the rectangle from pixels to 0.0 to 1.0
+       vec2 zeroToOne = a_position / u_resolution;
+    
+       // convert from 0->1 to 0->2
+       vec2 zeroToTwo = zeroToOne * 2.0;
+    
+       // convert from 0->2 to -1->+1 (clipspace)
+       vec2 clipSpace = zeroToTwo - 1.0;
+    
+       gl_Position = vec4(clipSpace * vec2(1, -1), 0, 1);
+    }
+</script>
+
+<!-- Boiler plate fragment shader from: https://webglfundamentals.org/webgl/lessons/webgl-fundamentals.html -->
+<script  id="fragment-shader-2d" type="notjs">
+  precision mediump float;
+
+  void main() {
+    gl_FragColor = vec4(1, 0, 0.5, 1); // return redish-purple
+  }
+</script>
+
+
+
+
+<script src="https://webglfundamentals.org/webgl/resources/webgl-utils.js"></script>
+<script src="main.js"></script>

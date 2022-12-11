@@ -1,0 +1,37 @@
+@keyframes anim{
+    0%{color:purple; margin-left: 5%; }
+    17%{color:red; margin-left: 40%}
+    33%{color:orange;margin-left: 5%;}
+    50%{color: yellow;margin-left: 40%;}
+    67%{color:green;margin-left: 5%;}
+    83%{color:blue;margin-left: 40%;}
+    100%{color:purple; margin-left: 5%;}
+}
+@keyframes divAnim{
+    0%{background-color:yellow;}
+    17%{background-color:green;}
+    33%{background-color:blue;}
+    50%{background-color: purple;}
+    67%{background-color:red;}
+    83%{background-color:orange;}
+    100%{background-color:yellow;}
+}
+h1{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation-name:anim;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+#backDrop{
+    padding:1%;
+    animation-name:divAnim;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+div{
+    border: lightcoral solid 1px;
+}
+.container{
+    margin:5%;
+    padding:2.5%;
+}
